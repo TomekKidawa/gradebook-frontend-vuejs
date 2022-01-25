@@ -109,14 +109,14 @@
                 </div>
 
                 <div v-if="currentUser">
-                 <v-list-item router to="/profile">
+                 <!-- <v-list-item router to="/profile">
                     <v-list-item-action>
                          <font-awesome-icon icon="user" />
                     </v-list-item-action>
                     <v-list-item-content>
                         <v-list-item-title>{{ currentUser.username }}</v-list-item-title>
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item> -->
 
                 <v-list-item  href @click.prevent="logOut">
                     <v-list-item-action>
