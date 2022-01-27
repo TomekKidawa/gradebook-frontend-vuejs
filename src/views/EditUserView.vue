@@ -1,6 +1,6 @@
 <template>
   <div class="EditUserview">
-    EditUser
+    
     <EditUser/>
 
   </div>

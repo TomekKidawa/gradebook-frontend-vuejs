@@ -54,6 +54,22 @@ export const router = new Router({
       path: '/edituser',
       name: 'edituser',
       component:() => import('../views/EditUserView.vue')
+    },
+    {
+      path: '/addgrade',
+      name: 'addgrade',
+      component:() => import('../views/AddGradeStudent.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/showgrade',
+      name: 'showgrade',
+      component:() => import('../views/ShowGradeStudent.vue'),
+      meta: {
+        requiresAuth: true
+      }
     }
 
   ]

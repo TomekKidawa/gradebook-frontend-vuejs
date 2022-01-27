@@ -1,6 +1,8 @@
 <template>
 <div>
+  <div class="mg-top"></div>
   <div v-if="currentUser" class="edit-form py-3">
+
     <p class="headline">Edit User</p>
 
     <v-form ref="form" lazy-validation>
@@ -27,12 +29,12 @@
       
         Aktualne role:
       <ul>
-        <li  v-for="(role ,index ) in currentUser.roles" :key="index" style="list-style-type:none">
+        <li  v-for="(role ,index ) in currentUser.roles" :key="index" style="list-style-type:none; margin-left:-30px">
             <v-chip
                class="ma-2"
-              color="blue darken-1"
+              color="darken-1"
                outlined
-              text-color="blue darken-1"
+              text-color="darken-1"
               small
             >
               <v-avatar left>
@@ -44,55 +46,52 @@
 
       </ul>
         
-        <v-btn @click="setRoleUser">User</v-btn>
-        <v-btn @click="setRoleModerator">Moderator</v-btn>
-        <v-btn @click="setRoleAdmin">Admin</v-btn>
+        <v-btn small @click="setRoleUser" style=";margin-right:1.7rem">User</v-btn>
+        <v-btn small @click="setRoleModerator" style="margin-right:1.7rem">Moderator</v-btn>
+        <v-btn small @click="setRoleAdmin" >Admin</v-btn>
        
-<!--         
-        <template>
-          <v-container fluid>
-            <p>{{role}}</p>
-            <v-checkbox
-              v-model="currentUser.roles"
-              label="User"
-              value=" {{}}" 
-            ></v-checkbox>
-            <v-checkbox
-              v-model="currentUser.roles"
-              label="Mod"
-              value="ROLE_MODERATOR"
-            ></v-checkbox>
-            <v-checkbox
-              v-model="currentUser.roles"
-              label="ADMIN"
-              value="ROLE_ADMIN"
-            ></v-checkbox>
-          </v-container>
-        </template> -->
 
-
-      <v-btn color="error" small class="mr-2" @click="deleteUser">
+      <v-btn color="error" normal class="mr-2" style="margin-top:1.6rem" @click="deleteUser">
         Delete
       </v-btn>
 
-      <v-btn color="success" small @click="update">
+      <v-btn color="success" normal  style="margin-top:1.6rem;margin-left:0.3rem" @click="update">
         Update
       </v-btn>
     </v-form>
-
-
-
-    <!-- <p class="mt-3">{{ message }}</p> -->
 
       
         <v-alert v-if=" message != 0 "
           shaped
           outlined
+          :timeout="timeout"
+          style="margin-top:1.6rem"
           type="success"
         >
         {{message}}
         </v-alert>
-    
+        
+         <v-snackbar
+              v-model="snackbar"
+              :timeout="timeout"
+              top
+              color="green darken-1"
+              style="margin-left:7.5rem"
+            >
+            <v-icon dense>mdi-checkbox-marked-circle</v-icon>
+              {{ snackbartext }}
+
+              <template v-slot:action="{ attrs }">
+                <v-btn
+                  color="black"
+                  text
+                  v-bind="attrs"
+                  @click="snackbar = false"
+                >
+                  Close
+                </v-btn>
+              </template>
+            </v-snackbar>
 
   </div>
 
@@ -114,7 +113,9 @@ export default {
     return {
       currentUser: null,
       message: 0,
-      chuj:0,
+      snackbar:false,
+      snackbartext:'użytkownik został edytowany pomyślnie',
+      timeout: 1200,
       adminRoles:[{ "id": 2, "name": "ROLE_MODERATOR" }, { "id": 1, "name": "ROLE_USER" }, { "id": 3, "name": "ROLE_ADMIN" }],
       userRoles:[{ "id": 1, "name": "ROLE_USER" }],
       modRoles:[{ "id": 2, "name": "ROLE_MODERATOR" },{ "id": 1, "name": "ROLE_USER" }]
@@ -140,12 +141,12 @@ export default {
           console.log(e);
         });
     },
-
     update() {
       userMgmt.updadeUser(this.currentUser.id, this.currentUser)
         .then((response) => {
           console.log(response.data);
-          this.message = "The user was updated successfully!";
+          // this.message = "Użytkownik został edytowany pomyślnie!";
+          this.snackbar = true
         })
         .catch((e) => {
           console.log(e);
@@ -174,5 +175,8 @@ export default {
 .edit-form {
   max-width: 300px;
   margin: auto;
+}
+.mg-top{
+  margin-top: 6rem;
 }
 </style>

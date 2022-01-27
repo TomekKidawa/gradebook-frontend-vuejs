@@ -1,12 +1,14 @@
 <template>
-
-  <div class="container">
-    <header class="jumbotron">
+  <v-container>
+    <v-row class="text-center" style="margin-top:2rem">
+      <v-col cols="12">
+  
       <h3>{{content}}</h3>
       <HelloWorld/>
        
-    </header>
-  </div>
+      </v-col>
+    </v-row>
+  </v-container>
   
 </template>
 
@@ -18,11 +20,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      content: 'sieeeema siema jestem bania nagrywam nute z rana ',
-      
-      adminRoles:[{ "id": 2, "name": "ROLE_MODERATOR" }, { "id": 1, "name": "ROLE_USER" }, { "id": 3, "name": "ROLE_ADMIN" }],
-      userRoles:[{ "id": 1, "name": "ROLE_USER" }],
-      ModRoles:[{ "id": 2, "name": "ROLE_MODERATOR" }]
+      content: 'Home page ',
+ 
     };
   },
    components:{

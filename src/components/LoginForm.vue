@@ -29,13 +29,9 @@
                         :append-icon="passwordShow ? 'mdi-eye':'mdi-eye-off'"
                         @click:append="passwordShow = !passwordShow"
                     />
-                  <v-switch label="Zapamiętaj mnie" color="grey darken-3">Zapamiętaj mnie</v-switch>
-                   
-                </v-card-text>
-                
- 
+                  <v-switch label="Zapamiętaj mnie" color="grey darken-3">Zapamiętaj mnie</v-switch>     
+              </v-card-text>
 
-          
                 <v-card-actions class="justify-center">
                   
                    <v-btn type="submit" color="grey darken-3">
@@ -52,6 +48,7 @@
                  <div class="form-group">
                     <div v-if="message" class="alert alert-danger" role="alert">{{message}}</div>
                   </div>
+
             </v-form>
 
             
@@ -60,6 +57,7 @@
         <v-snackbar top color="green" v-model="snackbar">
               Login success
         </v-snackbar>
+
     </v-col>
   
 
@@ -134,7 +132,6 @@ export default {
                   error => {
                     this.loading = false;
                     this.message =
-                    //error.response.data return error 401
                       (error.response && this.loginError) ||
                       error.message ||
                       error.toString();
