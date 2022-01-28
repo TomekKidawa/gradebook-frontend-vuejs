@@ -3,7 +3,6 @@
     <v-row class="text-center" style="margin-top:2rem">
       <v-col cols="12">
   
-      <h3>{{content}}</h3>
       <HelloWorld/>
        
       </v-col>

@@ -77,9 +77,6 @@
               </template>
             </v-snackbar>
         </div>
-
-    <h3>{{grade}}</h3>
-        {{tempId}}
       </v-row>  
     </div>
   </v-container>
@@ -142,9 +139,6 @@ import userMgmt from '../services/userMgmt.service';
         });
       }
 
-            // this.snackbar = true
-          
-          // this.$refs.form.resetValidation()
       },
        getUser(id) {
       userMgmt.getUserById(id)
@@ -190,3 +184,12 @@ import userMgmt from '../services/userMgmt.service';
      
   }
 </script>
+<style>
+.edit-form {
+  max-width: 300px;
+  margin: auto;
+}
+.mg-top{
+  margin-top: 8rem;
+}
+</style>

@@ -3,6 +3,7 @@
     <v-row class="text-center">
       <v-col cols="12">
      
+     <v-img src="../assets/edzienniklog1.jpg"></v-img>
       </v-col>
 
     

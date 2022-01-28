@@ -118,7 +118,7 @@ export default {
       ],
       UsernameRules: [
         v => !!v || 'Nazwa użytkownika jest wymagana',
-        v => (v && v.length >= 5) || 'Nazwa użytkownika musi mieć wiecej niż 3 znaki',
+        v => (v && v.length >= 3) || 'Nazwa użytkownika musi mieć wiecej niż 3 znaki',
       ],
     };
   },

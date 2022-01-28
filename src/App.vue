@@ -118,7 +118,8 @@
                     </v-list-item-content>
                 </v-list-item> -->
 
-                <v-list-item  href @click.prevent="logOut">
+               
+                <v-list-item href @click.prevent="logOut">
                     <v-list-item-action>
                          <font-awesome-icon icon="sign-out-alt"/>
                     </v-list-item-action>
@@ -126,7 +127,9 @@
                         <v-list-item-title>Wyloguj się</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                </div>
+                
+                 
+              </div>
 
             </v-list>
 
